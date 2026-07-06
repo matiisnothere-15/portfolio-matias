@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matías Riquelme Cruzat — Desarrollador Full Stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --seashell:#FFF4EB;
+    --wheat:#F6E0B6;
+    --powder:#A6BCC9;
+    --french:#3E4B8E;
+    --midnight:#3D1534;
+    --ink:#2B1230;
+    --muted:#6E6178;
+    --line:#E9D9CE;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--seashell);
+    color:var(--ink);
+    font-family:'Figtree',sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  ::selection{background:var(--wheat);color:var(--midnight)}
+
+  /* ---------- Aurora de fondo ---------- */
+  .aurora{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    overflow:hidden;
+  }
+  .aurora span{
+    position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;
+    animation:float 14s ease-in-out infinite alternate;
+  }
+  .aurora span:nth-child(1){width:520px;height:520px;background:var(--powder);top:-160px;right:-120px}
+  .aurora span:nth-child(2){width:420px;height:420px;background:var(--wheat);bottom:-140px;left:-120px;animation-delay:-5s}
+  .aurora span:nth-child(3){width:300px;height:300px;background:#C9CFEA;top:45%;left:60%;opacity:.25;animation-delay:-9s}
+  @keyframes float{
+    from{transform:translate(0,0) scale(1)}
+    to{transform:translate(-40px,50px) scale(1.12)}
+  }
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(255,244,235,.8);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s, box-shadow .3s;
+  }
+  nav.scrolled{border-bottom-color:var(--line);box-shadow:0 6px 24px rgba(61,21,52,.06)}
+  .nav-inner{
+    max-width:880px;margin:0 auto;padding:16px 28px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .nav-name{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--midnight);text-decoration:none}
+  .nav-links{display:flex;gap:26px}
+  .nav-links a{
+    position:relative;font-size:14px;color:var(--muted);text-decoration:none;transition:color .25s;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;
+    background:var(--french);transition:width .3s ease;
+  }
+  .nav-links a:hover,.nav-links a:focus-visible{color:var(--french)}
+  .nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%}
+  a:focus-visible{outline:2px solid var(--french);outline-offset:3px;border-radius:2px}
+
+  /* ---------- Hero ---------- */
+  header{padding:100px 0 76px;position:relative;z-index:1}
+  .hero-grid{display:grid;grid-template-columns:1fr auto;gap:52px;align-items:center}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--french);margin-bottom:20px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"✦";font-size:13px}
+  h1{
+    font-family:'Instrument Serif',serif;font-weight:400;
+    font-size:clamp(44px,7vw,70px);line-height:1.05;letter-spacing:-.01em;
+    color:var(--midnight);
+  }
+  h1 em{
+    font-style:italic;
+    background:linear-gradient(100deg,var(--french) 20%,#7B6BA8 80%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{margin-top:22px;font-size:18px;color:var(--muted);max-width:52ch}
+  .hero-actions{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;padding:12px 26px;border-radius:100px;
+    font-size:15px;font-weight:500;text-decoration:none;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s, color .25s, border-color .25s;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn:active{transform:translateY(0)}
+  .btn-primary{background:var(--midnight);color:var(--seashell)}
+  .btn-primary:hover{background:var(--french);box-shadow:0 10px 26px rgba(62,75,142,.35)}
+  .btn-ghost{border:1px solid var(--powder);color:var(--midnight)}
+  .btn-ghost:hover{border-color:var(--french);color:var(--french);box-shadow:0 8px 20px rgba(62,75,142,.15)}
+
+  .photo-slot{position:relative}
+  .photo-slot::before{
+    content:"";position:absolute;inset:-14px;border-radius:50%;
+    border:1px dashed var(--powder);
+    animation:spin 40s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .photo,
+  .photo-placeholder{
+    width:200px;height:200px;border-radius:50%;
+    object-fit:cover;display:block;position:relative;
+    box-shadow:0 18px 44px rgba(61,21,52,.16);
+  }
+  .photo-placeholder{
+    background:repeating-linear-gradient(45deg,#EFE4F0,#EFE4F0 8px,#F8ECF4 8px,#F8ECF4 16px);
+    border:2px dashed var(--french);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  }
+  .photo-placeholder svg{
+    width:58px;height:58px;fill:none;stroke:var(--french);
+    stroke-width:1.5;stroke-linecap:round;opacity:.75;
+  }
+  .photo-placeholder span{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--french);
+  }
+
+  /* El trazo — firma visual */
+  .trazo{display:block;margin-top:46px;width:100%;max-width:520px;height:36px}
+  .trazo path{
+    fill:none;stroke:var(--french);stroke-width:1.6;stroke-linecap:round;
+    stroke-dasharray:900;stroke-dashoffset:900;
+    animation:draw 2.2s ease-out .3s forwards;
+  }
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ---------- Secciones ---------- */
+  section{padding:72px 0;border-top:1px solid var(--line);position:relative;z-index:1}
+  h2{
+    font-family:'Instrument Serif',serif;font-weight:400;
+    font-size:36px;margin-bottom:42px;color:var(--midnight);
+  }
+  h2 span{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--french);display:block;margin-bottom:10px;
+  }
+
+  /* Reveal on scroll */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  /* Experiencia y proyectos */
+  .item{
+    display:grid;grid-template-columns:180px 1fr;gap:28px;
+    padding:30px 22px;margin:0 -22px;border-top:1px solid var(--line);
+    border-radius:16px;
+    transition:background .3s ease, box-shadow .3s ease, transform .3s ease;
+  }
+  .item:hover{
+    background:rgba(255,255,255,.65);
+    box-shadow:0 14px 36px rgba(61,21,52,.08);
+    transform:translateY(-2px);
+    border-top-color:transparent;
+  }
+  .item:first-of-type{border-top:none;padding-top:22px}
+  .item-date{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--muted);letter-spacing:.03em;padding-top:5px}
+  .item h3{font-size:19px;font-weight:600;line-height:1.35;color:var(--midnight)}
+  .item .org{color:var(--french);font-size:15px;font-weight:500;margin-top:2px}
+  .item p{margin-top:12px;color:var(--muted);font-size:15.5px}
+  .item ul{margin-top:12px;list-style:none}
+  .item li{
+    position:relative;padding-left:20px;margin-bottom:9px;
+    color:var(--muted);font-size:15.5px;
+  }
+  .item li::before{content:"—";position:absolute;left:0;color:var(--french)}
+  .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.02em;
+    padding:4px 12px;border:1px solid var(--powder);border-radius:100px;color:var(--french);
+    background:rgba(166,188,201,.12);
+    transition:background .25s, color .25s, border-color .25s;
+  }
+  .tag:hover{background:var(--french);color:var(--seashell);border-color:var(--french)}
+
+  /* ---------- Premio ---------- */
+  .award{
+    position:relative;overflow:hidden;
+    background:linear-gradient(135deg,var(--wheat) 0%,#FBEDCB 100%);
+    border:1px solid #E8D3A0;
+    border-radius:22px;
+    padding:52px 48px;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;
+    box-shadow:0 22px 60px rgba(61,21,52,.10);
+  }
+  .award::before{
+    content:"✦";position:absolute;top:-30px;right:-10px;
+    font-size:180px;line-height:1;color:rgba(61,21,52,.05);
+    pointer-events:none;
+  }
+  .award .label{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:#8A6D1F;margin-bottom:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .award .label::before{content:"✦"}
+  .award h3{
+    font-family:'Instrument Serif',serif;font-weight:400;
+    font-size:32px;line-height:1.18;margin-bottom:14px;color:var(--midnight);
+  }
+  .award p{color:#6B5836;font-size:16px}
+
+  /* Foto del premio */
+  .award-photo-frame{
+    position:relative;border-radius:16px;
+    transform:rotate(1.5deg);
+    transition:transform .4s ease;
+  }
+  .award-photo-frame:hover{transform:rotate(0deg) scale(1.02)}
+  .award-photo,
+  .award-photo-placeholder{
+    width:100%;aspect-ratio:4/3;border-radius:16px;
+    object-fit:cover;display:block;
+    box-shadow:0 16px 40px rgba(61,21,52,.22);
+    border:6px solid #FFFDF7;
+  }
+  .award-photo-placeholder{
+    background:repeating-linear-gradient(45deg,#F1E3C2,#F1E3C2 10px,#F8EDD3 10px,#F8EDD3 20px);
+    border:2px dashed #B08D3C;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    box-shadow:none;
+  }
+  .award-photo-placeholder svg{
+    width:52px;height:52px;fill:none;stroke:#8A6D1F;stroke-width:1.5;
+    stroke-linecap:round;stroke-linejoin:round;opacity:.8;
+  }
+  .award-photo-placeholder span{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;color:#8A6D1F;text-align:center;
+    padding:0 16px;
+  }
+
+  /* ---------- Habilidades ---------- */
+  .skill-row{display:grid;grid-template-columns:180px 1fr;gap:28px;padding:20px 0;border-top:1px solid var(--line)}
+  .skill-row:first-of-type{border-top:none}
+  .skill-label{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--french);letter-spacing:.05em;text-transform:uppercase;padding-top:2px}
+  .skill-row p{font-size:16px;color:var(--ink)}
+
+  /* ---------- Certificaciones ---------- */
+  .cert-list{columns:2;column-gap:48px}
+  .cert{
+    break-inside:avoid;padding:14px 12px;margin:0 -12px;border-bottom:1px solid var(--line);
+    font-size:15px;border-radius:10px;
+    transition:background .25s;
+  }
+  .cert:hover{background:rgba(255,255,255,.7)}
+  .cert .cert-year{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);display:block;margin-top:2px}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);padding:76px 0 84px;position:relative;z-index:1;
+    background:linear-gradient(180deg,transparent,rgba(166,188,201,.14))}
+  footer h2{margin-bottom:18px}
+  .contact-links{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px}
+  .foot-note{
+    margin-top:56px;font-family:'JetBrains Mono',monospace;
+    font-size:12px;color:var(--muted);letter-spacing:.04em;
+  }
+
+  /* ---------- Motion off ---------- */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .trazo path{animation:none;stroke-dashoffset:0}
+    .aurora span{animation:none}
+    .photo-slot::before{animation:none}
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn,.item,.award-photo-frame{transition:none}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-grid > .photo-slot{order:-1;justify-self:start}
+    .photo,.photo-placeholder{width:150px;height:150px}
+    .photo-placeholder svg{width:44px;height:44px}
+    .item,.skill-row{grid-template-columns:1fr;gap:6px}
+    .item{margin:0;padding:26px 16px}
+    .award{grid-template-columns:1fr;padding:38px 26px;gap:28px}
+    .award-photo-frame{transform:none}
+    .cert-list{columns:1}
+    .nav-links{gap:16px}
+    .nav-links a{font-size:13px}
+  }
+</style>
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">MR·C</a>
+    <div class="nav-links">
+      <a href="#experiencia">Experiencia</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#premio">Premio</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top" class="wrap">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Ingeniero en Informática · Santiago, Chile</p>
+      <h1>Matías Riquelme,<br>desarrollador <em>full&nbsp;stack</em>.</h1>
+      <p class="hero-sub">Construyo soluciones web escalables con Angular, React, TypeScript, C# / .NET 8 y Microsoft Azure. Automatizo procesos, integro sistemas y me obsesiona que el software resuelva problemas reales.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contacto">Hablemos</a>
+        <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
+      </div>
+      <!-- El trazo: guiño a GrafomotorIA, el análisis de trazos que dio origen al premio -->
+      <svg class="trazo" viewBox="0 0 520 36" aria-hidden="true">
+        <path d="M4 26 C 60 4, 90 32, 140 20 S 230 2, 280 22 S 380 34, 430 14 S 500 10, 516 22"/>
+      </svg>
+    </div>
+    <div class="photo-slot">
+      <img class="photo" src="img/FotoPerfil.JPG" alt="Foto de Matías Riquelme">
+    </div>
+  </div>
+</header>
+
+<section id="experiencia" class="wrap">
+  <h2 class="reveal"><span>01 — Trayectoria</span>Experiencia profesional</h2>
+
+  <div class="item reveal">
+    <div class="item-date">Ago 2025 — Feb 2026</div>
+    <div>
+      <h3>Desarrollador Full Stack — Práctica profesional</h3>
+      <p class="org">Seguros SURA Chile</p>
+      <ul>
+        <li>Desarrollo full stack del Sistema SEPT: 6 módulos y ~15 endpoints con Angular 20 (SSR), TypeScript, .NET 8, C# y SQL.</li>
+        <li>Diseño del modelo de datos y despliegue de 4 servicios en Azure: App Service, SQL Database, Active Directory y DevOps.</li>
+        <li>Automatización mensual de 2.500 facturas con Power Automate: el proceso pasó de varios días a 2–4 horas (−90%).</li>
+        <li>Levantamiento de requerimientos bajo Scrum y dashboards en Power BI con ~8 indicadores operacionales.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Angular 20</span><span class="tag">.NET 8</span><span class="tag">Azure</span><span class="tag">Power Automate</span><span class="tag">Power BI</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-date">Nov 2024 — Dic 2025</div>
+    <div>
+      <h3>Desarrollador Full Stack — Proyecto GrafomotorIA</h3>
+      <p class="org">Duoc UC & Fundación Teletón</p>
+      <ul>
+        <li>PWA con 8 actividades interactivas en React y TypeScript para digitalizar y evaluar el test clínico VMI.</li>
+        <li>Implementación de 3 algoritmos de análisis geométrico: Procrustes, DTW y Distancia de Fréchet.</li>
+        <li>Extracción de 5 métricas de trazo: velocidad, aceleración, presión, precisión y trayectoria.</li>
+        <li>Arquitectura híbrida que integra reglas clínicas computables, procesamiento de datos y modelos de IA.</li>
+        <li>~20 componentes reutilizables para la mantenibilidad y la experiencia terapéutica del frontend.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PWA</span><span class="tag">IA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-date">Mar 2024</div>
+    <div>
+      <h3>Desarrollador de Software — Práctica laboral "Reading to Learn"</h3>
+      <p class="org">Duoc UC</p>
+      <ul>
+        <li>Plataforma educativa con 3 módulos: escritura digital, evaluación y retroalimentación automática al estudiante.</li>
+        <li>~5 rúbricas y reglas de corrección para estandarizar y agilizar las evaluaciones académicas.</li>
+        <li>Integración bidireccional con Moodle: cursos, inscripciones, estudiantes y calificaciones.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">EdTech</span><span class="tag">Moodle</span><span class="tag">Automatización</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos" class="wrap">
+  <h2 class="reveal"><span>02 — Trabajo destacado</span>Proyectos</h2>
+
+  <div class="item reveal">
+    <div class="item-date">2024 — 2025</div>
+    <div>
+      <h3>GrafomotorIA</h3>
+      <p class="org">Con Fundación Teletón</p>
+      <p>Digitalización de pruebas visomotoras (VMI) mediante una aplicación PWA, análisis geométrico e Inteligencia Artificial. El sistema analiza presión, velocidad y precisión del trazo para facilitar la evaluación clínica y habilitar la telerehabilitación de pacientes.</p>
+      <div class="tags">
+        <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Procrustes · DTW · Fréchet</span><span class="tag">IA clínica</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-date">2025 — 2026</div>
+    <div>
+      <h3>Sistema SEPT</h3>
+      <p class="org">Seguros SURA Chile</p>
+      <p>Sistema interno de 6 módulos desarrollado de punta a punta: frontend en Angular 20 con SSR, backend en .NET 8 y despliegue completo en Azure. Incluye automatización de facturación que redujo el proceso mensual en un 90%.</p>
+      <div class="tags">
+        <span class="tag">Angular 20 SSR</span><span class="tag">.NET 8</span><span class="tag">Azure</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item reveal">
+    <div class="item-date">2024</div>
+    <div>
+      <h3>Reading to Learn</h3>
+      <p class="org">Duoc UC</p>
+      <p>Plataforma educativa de escritura digital con evaluación y retroalimentación automática, integrada bidireccionalmente con Moodle para sincronizar cursos, inscripciones, estudiantes y calificaciones.</p>
+      <div class="tags">
+        <span class="tag">Plataforma educativa</span><span class="tag">Moodle</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="premio" class="wrap">
+  <h2 class="reveal"><span>03 — Reconocimiento</span>Premio</h2>
+  <div class="award reveal">
+    <div>
+      <p class="label">Demo Day 2025 · Duoc UC</p>
+      <h3>Premio al Proyecto Más Innovador — GrafomotorIA</h3>
+      <p>Reconocimiento obtenido por el desarrollo de GrafomotorIA, en colaboración con Fundación Teletón. La solución digitaliza pruebas visomotoras utilizando Inteligencia Artificial para analizar métricas de trazo —presión, velocidad y precisión— facilitando la evaluación clínica y habilitando la telerehabilitación.</p>
+    </div>
+    <div class="award-photo-frame">
+      <img class="award-photo" src="img/premio.jpeg" alt="Equipo de GrafomotorIA recibiendo el Premio al Proyecto Más Innovador en el Demo Day 2025, Duoc UC sede Plaza Vespucio">
+    </div>
+  </div>
+</section>
+
+<section id="habilidades" class="wrap">
+  <h2 class="reveal"><span>04 — Stack</span>Habilidades</h2>
+  <div class="skill-row reveal">
+    <div class="skill-label">Lenguajes</div>
+    <p>Python, JavaScript, TypeScript, C#, Java, HTML y CSS</p>
+  </div>
+  <div class="skill-row reveal">
+    <div class="skill-label">Frameworks</div>
+    <p>React, Angular, .NET 8, Node.js, Django y Bootstrap</p>
+  </div>
+  <div class="skill-row reveal">
+    <div class="skill-label">Cloud & datos</div>
+    <p>Azure App Service, Azure SQL Database, SQL, AWS y Google Cloud</p>
+  </div>
+  <div class="skill-row reveal">
+    <div class="skill-label">Metodologías</div>
+    <p>Scrum, metodologías ágiles, levantamiento de requerimientos y documentación</p>
+  </div>
+  <div class="skill-row reveal">
+    <div class="skill-label">Herramientas</div>
+    <p>APIs REST, Git, GitHub, Azure DevOps, Power Automate y Power BI</p>
+  </div>
+</section>
+
+<section id="certificaciones" class="wrap">
+  <h2 class="reveal"><span>05 — Formación continua</span>Certificaciones</h2>
+  <div class="cert-list reveal">
+    <div class="cert">Arquitectura Cloud — Especialidad<span class="cert-year">Talento Digital para Chile · 2026</span></div>
+    <div class="cert">DevOps Essentials Professional Certificate (DEPC)<span class="cert-year">CertiProf · Enero 2026</span></div>
+    <div class="cert">Blue Prism Foundation Training (RPA)<span class="cert-year">Coursera · Noviembre 2025</span></div>
+    <div class="cert">Inteligencia Artificial y Productividad<span class="cert-year">Google · Octubre 2025</span></div>
+    <div class="cert">Cursor con Python<span class="cert-year">Santander Open Academy · Octubre 2025</span></div>
+    <div class="cert">Certified Data Analytics<span class="cert-year">UBITS · Agosto 2025</span></div>
+    <div class="cert">Consultas a bases de datos con SQL<span class="cert-year">UBITS · Septiembre 2025</span></div>
+    <div class="cert">Contenedores: beneficios para DevOps<span class="cert-year">UBITS · Agosto 2025</span></div>
+    <div class="cert">Google Cloud Skills Boost — 7 cursos de ML, Vertex AI, BigQuery ML y MLOps<span class="cert-year">Google Cloud · Junio 2025</span></div>
+    <div class="cert">Cybersecurity Awareness Learner<span class="cert-year">CertiProf · Enero 2025</span></div>
+    <div class="cert">Carrera de Desarrollo Frontend React<span class="cert-year">CoderHouse · Enero 2024</span></div>
+    <div class="cert">Python Essentials 1<span class="cert-year">Cisco Networking Academy · Enero 2024</span></div>
+    <div class="cert">Curso de JavaScript · Curso de Desarrollo Web<span class="cert-year">CoderHouse · 2023</span></div>
+  </div>
+</section>
+
+<section id="educacion" class="wrap">
+  <h2 class="reveal"><span>06 — Estudios</span>Educación</h2>
+  <div class="item reveal">
+    <div class="item-date">Titulado 2026</div>
+    <div>
+      <h3>Ingeniería en Informática</h3>
+      <p class="org">Duoc UC · Sede Plaza Vespucio</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="wrap">
+    <h2 class="reveal"><span>07 — Contacto</span>Trabajemos juntos</h2>
+    <p class="reveal" style="color:var(--muted);max-width:52ch">¿Tienes un proyecto en mente o buscas un desarrollador full stack? Escríbeme.</p>
+    <div class="contact-links reveal">
+      <a class="btn btn-primary" href="mailto:matiasriquelme633@gmail.com">matiasriquelme633@gmail.com</a>
+      <a class="btn btn-ghost" href="tel:+56952381975">+56 9 5238 1975</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/matias-riquelme-23580818b" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn">LinkedIn</a>
+    </div>
+    <p class="foot-note">© 2026 Matías Riquelme Cruzat — Santiago, Chile</p>
+  </div>
+</footer>
+
+<script>
+  // Aparición suave de secciones al hacer scroll
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+  if (prefersReduced) {
+    reveals.forEach(el => el.classList.add('visible'));
+  } else {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+  }
+
+  // Sombra sutil en la barra al hacer scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+</script>
+
+</body>
+</html>

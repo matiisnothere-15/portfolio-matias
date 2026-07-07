@@ -1,12 +1,15 @@
-Coloca aquí el video demo de GrafomotorIA con este nombre EXACTO:
+Coloca aquí la demo de GrafomotorIA con uno de estos nombres EXACTOS:
 
-  grafomotoria-demo.mp4
+  grafomotoria-demo.gif   (opción preferida: GIF animado)
+  grafomotoria-demo.mp4   (alternativa: video MP4)
 
-El portfolio lo detecta automáticamente: mientras el archivo no exista se muestra
-un recuadro de "próximamente"; apenas lo subas, aparecerá el reproductor de video.
+El portfolio lo detecta automáticamente: mientras no exista ninguno de los dos
+se muestra un recuadro de "próximamente"; apenas subas el archivo, aparecerá
+la demo. Si existen ambos, se usa el GIF.
 
-Recomendaciones:
-- Formato MP4 (H.264), idealmente menos de 25 MB para que cargue rápido en GitHub Pages.
-- Duración ideal: 30-60 segundos mostrando un trazo siendo analizado en tiempo real.
+Recomendaciones para el GIF:
+- Idealmente menos de 10-15 MB (los GIF pesan mucho; recorta a 10-20 segundos
+  y usa un ancho de ~800 px para que cargue rápido en GitHub Pages).
+- Muestra un trazo siendo dibujado y analizado en tiempo real.
 
 Cuando lo agregues, puedes borrar este LEEME.txt.

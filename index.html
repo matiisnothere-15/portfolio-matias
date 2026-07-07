@@ -37,7 +37,9 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  .wrap{max-width:880px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  /* Solo padding horizontal (longhand) para no anular el padding vertical
+     que header y section definen con menor especificidad */
+  .wrap{max-width:880px;margin:0 auto;padding-left:28px;padding-right:28px;position:relative;z-index:1}
   ::selection{background:var(--wheat);color:var(--midnight)}
 
   /* ---------- Aurora de fondo ---------- */
@@ -371,6 +373,12 @@
 
   /* ---------- Responsive ---------- */
   @media (max-width:760px){
+    /* Nav en dos filas centradas: logo arriba, enlaces abajo, sin cortes */
+    .nav-inner{flex-wrap:wrap;justify-content:center;row-gap:8px;padding:12px 16px}
+    .nav-name{width:100%;text-align:center}
+    .nav-links{flex-wrap:wrap;justify-content:center}
+    .nav-links a{white-space:nowrap}
+    header{padding:40px 0 56px}
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .hero-grid > .photo-slot{order:-1;justify-self:start}
     .photo,.photo-placeholder{width:150px;height:150px}

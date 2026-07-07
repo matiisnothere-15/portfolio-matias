@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matías Riquelme Cruzat — Desarrollador Full Stack</title>
+<meta name="description" content="Ingeniero en Informática y desarrollador full stack en Santiago, Chile. Angular, React, TypeScript, .NET 8 y Azure. Creador de GrafomotorIA, Premio al Proyecto Más Innovador — Demo Day 2025.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Matías Riquelme Cruzat — Desarrollador Full Stack">
+<meta property="og:description" content="Construyo soluciones web escalables con Angular, React, TypeScript, .NET 8 y Azure. Conoce GrafomotorIA y mis proyectos.">
+<meta property="og:url" content="https://matiisnothere-15.github.io/portfolio-matias/">
+<meta property="og:image" content="https://matiisnothere-15.github.io/portfolio-matias/img/FotoPerfil.JPG">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85' fill='%233E4B8E'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -275,6 +283,77 @@
     font-size:12px;color:var(--muted);letter-spacing:.04em;
   }
 
+  /* ---------- Sobre mí ---------- */
+  .about{max-width:62ch}
+  .about p{color:var(--ink);font-size:16.5px;margin-bottom:18px}
+  .about p:last-child{margin-bottom:0}
+  .about strong{color:var(--midnight);font-weight:600}
+
+  /* ---------- Caso de estudio ---------- */
+  .case{
+    background:rgba(255,255,255,.62);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:46px 44px;
+    margin-bottom:34px;
+    box-shadow:0 18px 50px rgba(61,21,52,.07);
+  }
+  .case-label{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--french);margin-bottom:12px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .case-label::before{content:"✦";font-size:13px}
+  .case h3{
+    font-family:'Instrument Serif',serif;font-weight:400;
+    font-size:32px;line-height:1.15;color:var(--midnight);margin-bottom:14px;
+  }
+  .case > p{color:var(--muted);font-size:15.5px;margin-bottom:14px;max-width:64ch}
+  .case h4{
+    font-family:'Instrument Serif',serif;font-weight:400;
+    font-size:24px;color:var(--midnight);margin:38px 0 10px;
+  }
+  .step{display:grid;grid-template-columns:46px 1fr;gap:16px;margin-top:24px}
+  .step-n{
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--powder);background:rgba(166,188,201,.14);
+    color:var(--french);font-family:'JetBrains Mono',monospace;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step h5{font-size:16px;font-weight:600;color:var(--midnight);margin-bottom:6px}
+  .step p{color:var(--muted);font-size:15.5px;max-width:62ch}
+  .step strong{color:var(--french);font-weight:600}
+  .case-closing{
+    margin-top:28px;padding:18px 22px;border-left:3px solid var(--french);
+    background:rgba(62,75,142,.06);border-radius:0 12px 12px 0;
+    color:var(--ink);font-size:15.5px;
+  }
+  .diagram{margin-top:18px;width:100%;max-width:540px;height:auto;display:block}
+  .diagram .d-caption{font-family:'JetBrains Mono',monospace;font-size:10px;fill:var(--muted);letter-spacing:.04em}
+  .diagram .d-model{fill:none;stroke:var(--french);stroke-width:1.8;stroke-linecap:round}
+  .diagram .d-patient{fill:none;stroke:#C25B4A;stroke-width:1.8;stroke-linecap:round}
+  .diagram .d-link{stroke:var(--powder);stroke-width:1}
+  .diagram .d-arrow{fill:none;stroke:var(--muted);stroke-width:1.3;stroke-linecap:round}
+
+  /* ---------- Video del proyecto ---------- */
+  .video-frame{margin:30px 0 6px}
+  .video-frame video{
+    width:100%;aspect-ratio:16/9;border-radius:16px;display:block;
+    background:#000;box-shadow:0 16px 40px rgba(61,21,52,.18);
+  }
+  .video-frame video[hidden]{display:none}
+  .video-placeholder{
+    width:100%;aspect-ratio:16/9;border-radius:16px;
+    background:repeating-linear-gradient(45deg,#EFE4F0,#EFE4F0 10px,#F8ECF4 10px,#F8ECF4 20px);
+    border:2px dashed var(--french);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  }
+  .video-placeholder svg{width:54px;height:54px;fill:none;stroke:var(--french);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.75}
+  .video-placeholder span{
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--french);text-align:center;padding:0 20px;line-height:1.8;
+  }
+
   /* ---------- Motion off ---------- */
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
@@ -294,6 +373,8 @@
     .item,.skill-row{grid-template-columns:1fr;gap:6px}
     .item{margin:0;padding:26px 16px}
     .award{grid-template-columns:1fr;padding:38px 26px;gap:28px}
+    .case{padding:32px 22px}
+    .step{grid-template-columns:38px 1fr;gap:12px}
     .award-photo-frame{transform:none}
     .cert-list{columns:1}
     .nav-links{gap:16px}
@@ -309,6 +390,7 @@
   <div class="nav-inner">
     <a class="nav-name" href="#top">MR·C</a>
     <div class="nav-links">
+      <a href="#sobre-mi">Sobre mí</a>
       <a href="#experiencia">Experiencia</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#premio">Premio</a>
@@ -326,6 +408,7 @@
       <div class="hero-actions">
         <a class="btn btn-primary" href="#contacto">Hablemos</a>
         <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn-ghost" href="cv/CV-Matias-Riquelme-Cruzat.pdf" download>Descargar CV</a>
       </div>
       <!-- El trazo: guiño a GrafomotorIA, el análisis de trazos que dio origen al premio -->
       <svg class="trazo" viewBox="0 0 520 36" aria-hidden="true">
@@ -338,8 +421,17 @@
   </div>
 </header>
 
+<section id="sobre-mi" class="wrap">
+  <h2 class="reveal"><span>01 — Quién soy</span>Sobre mí</h2>
+  <div class="about reveal">
+    <p>Empecé a desarrollar cuando aún era estudiante, primero en el <strong>front-end</strong> y sumándome progresivamente al back-end. Mi primer gran desafío fue <strong>GrafomotorIA</strong>, junto a Fundación Teletón: lideré el front-end con React y TypeScript —la captura de trazos, la trayectoria, la velocidad y todas las métricas clínicas del proyecto— y, al trabajar directamente con el cliente, en la práctica me desenvolví como desarrollador full stack.</p>
+    <p>Luego, en <strong>Seguros SURA Chile</strong>, mi rol ya fue oficialmente full stack: front-end, back-end, temas de seguridad y apoyo en la arquitectura del software.</p>
+    <p>Hoy soy <strong>Ingeniero en Informática titulado</strong>. Mi mayor fortaleza está en el front-end, pero me muevo con soltura por todo el stack, y mi objetivo actual es profundizar en arquitectura de software para crecer hacia un rol de <strong>arquitecto</strong>. Fuera del trabajo sigo construyendo proyectos personales; ahora mismo, un sistema de monitoreo de mascotas.</p>
+  </div>
+</section>
+
 <section id="experiencia" class="wrap">
-  <h2 class="reveal"><span>01 — Trayectoria</span>Experiencia profesional</h2>
+  <h2 class="reveal"><span>02 — Trayectoria</span>Experiencia profesional</h2>
 
   <div class="item reveal">
     <div class="item-date">Ago 2025 — Feb 2026</div>
@@ -394,19 +486,98 @@
 </section>
 
 <section id="proyectos" class="wrap">
-  <h2 class="reveal"><span>02 — Trabajo destacado</span>Proyectos</h2>
+  <h2 class="reveal"><span>03 — Trabajo destacado</span>Proyectos</h2>
 
-  <div class="item reveal">
-    <div class="item-date">2024 — 2025</div>
-    <div>
-      <h3>GrafomotorIA</h3>
-      <p class="org">Con Fundación Teletón</p>
-      <p>Digitalización de pruebas visomotoras (VMI) mediante una aplicación PWA, análisis geométrico e Inteligencia Artificial. El sistema analiza presión, velocidad y precisión del trazo para facilitar la evaluación clínica y habilitar la telerehabilitación de pacientes.</p>
-      <div class="tags">
-        <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Procrustes · DTW · Fréchet</span><span class="tag">IA clínica</span>
+  <article class="case reveal">
+    <p class="case-label">Caso de estudio · 2024 — 2025 · Con Fundación Teletón</p>
+    <h3>GrafomotorIA</h3>
+    <p><strong style="color:var(--midnight)">El problema.</strong> El test VMI —la prueba clínica estándar para evaluar la coordinación visomotora— se aplica tradicionalmente en papel: depende del ojo del terapeuta, es difícil de cuantificar objetivamente y no permite el seguimiento a distancia de los pacientes.</p>
+    <p><strong style="color:var(--midnight)">La solución.</strong> GrafomotorIA lo digitaliza con una PWA de 8 actividades interactivas en React y TypeScript. El paciente dibuja sobre una pizarra digital y el sistema analiza presión, velocidad, aceleración, precisión y trayectoria del trazo, entregando al terapeuta una evaluación objetiva y habilitando la telerehabilitación. El proyecto obtuvo el <a href="#premio" style="color:var(--french)">Premio al Proyecto Más Innovador</a> en el Demo Day 2025 de Duoc UC.</p>
+
+    <div class="video-frame">
+      <video id="gm-video" controls preload="metadata" hidden>
+        <source src="video/grafomotoria-demo.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+      <div class="video-placeholder" id="gm-video-ph">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5 L16 12 L10 15.5 Z"/></svg>
+        <span>Demo en video — GrafomotorIA en acción<br>video/grafomotoria-demo.mp4</span>
       </div>
     </div>
-  </div>
+
+    <h4>Cómo funciona por dentro</h4>
+    <p>Todo parte en la pizarra digital: cada trazo del paciente se captura como una ráfaga de puntos con coordenadas (x, y), tiempo y presión. Sobre esos datos corre una pipeline de tres etapas, donde cada algoritmo prepara los datos para el siguiente.</p>
+
+    <div class="step">
+      <div class="step-n">1</div>
+      <div>
+        <h5>Remuestreo — normalizar los datos</h5>
+        <p>La pizarra captura puntos a la tasa que permite el hardware (~60 Hz): un trazo rápido genera pocos puntos y uno lento, miles. Antes de comparar, ambos trazos se remuestrean mediante interpolación lineal a lo largo de la trayectoria, para que el dibujo del paciente y la figura modelo tengan exactamente el mismo número de puntos.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-n">2</div>
+      <div>
+        <h5>Procrustes — alineación espacial</h5>
+        <p>Elimina las variables que no importan clínicamente. Si el paciente dibujó más grande, más pequeño o desplazado en la pizarra, Procrustes <strong>escala</strong> ambos trazos a dimensiones uniformes, <strong>traslada</strong> el centroide del dibujo al mismo origen del modelo y lo <strong>rota</strong> hasta el ángulo donde la distancia cuadrática entre puntos correspondientes es mínima. El resultado es un trazo purificado: ya no importa dónde ni a qué tamaño se dibujó, sino la fidelidad de la forma.</p>
+        <svg class="diagram" viewBox="0 0 540 150" role="img" aria-label="Fases de alineación espacial de Procrustes: escalar, trasladar y rotar">
+          <!-- Panel a: originales -->
+          <g transform="translate(10,10)">
+            <path class="d-model" d="M10 70 C 30 10, 90 5, 110 40 S 70 100, 30 82"/>
+            <path class="d-patient" transform="translate(46,44) scale(0.55) rotate(18)" d="M10 70 C 30 10, 90 5, 110 40 S 70 100, 30 82"/>
+            <text class="d-caption" x="60" y="128" text-anchor="middle">(a) escalar</text>
+          </g>
+          <path class="d-arrow" d="M158 70 h28 m-8 -6 l8 6 l-8 6"/>
+          <!-- Panel b: misma escala, trasladado -->
+          <g transform="translate(205,10)">
+            <path class="d-model" d="M10 70 C 30 10, 90 5, 110 40 S 70 100, 30 82"/>
+            <path class="d-patient" transform="translate(22,14) rotate(18 60 55)" d="M10 70 C 30 10, 90 5, 110 40 S 70 100, 30 82"/>
+            <text class="d-caption" x="70" y="128" text-anchor="middle">(b) trasladar</text>
+          </g>
+          <path class="d-arrow" d="M363 70 h28 m-8 -6 l8 6 l-8 6"/>
+          <!-- Panel c: rotado y superpuesto -->
+          <g transform="translate(410,10)">
+            <path class="d-model" d="M10 70 C 30 10, 90 5, 110 40 S 70 100, 30 82"/>
+            <path class="d-patient" transform="translate(3,2) rotate(2 60 55)" d="M10 70 C 30 10, 90 5, 110 40 S 70 100, 30 82"/>
+            <text class="d-caption" x="62" y="128" text-anchor="middle">(c) rotar</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-n">3</div>
+      <div>
+        <h5>DTW — alineación temporal</h5>
+        <p>Con las formas ya superpuestas, <strong>Dynamic Time Warping</strong> compara las secuencias sin exigir una correspondencia rígida punto a punto: busca el camino de deformación óptimo (<em>warping path</em>), permitiendo que un solo punto del modelo se asocie a varios puntos del trazo del paciente —una pausa o una desaceleración al dibujar— y calcula una distancia acumulada inmune a las variaciones de velocidad.</p>
+        <svg class="diagram" viewBox="0 0 540 150" role="img" aria-label="Alineación temporal con DTW: emparejamiento flexible entre la secuencia del modelo y la del paciente">
+          <path class="d-model" d="M30 40 C 80 10, 130 70, 180 40 S 280 10, 330 40 S 430 70, 500 35"/>
+          <path class="d-patient" d="M30 110 C 60 90, 90 130, 140 115 S 230 85, 300 120 S 420 95, 500 110"/>
+          <line class="d-link" x1="45" y1="34" x2="42" y2="103"/>
+          <line class="d-link" x1="85" y1="26" x2="65" y2="98"/>
+          <line class="d-link" x1="125" y1="47" x2="95" y2="116"/>
+          <line class="d-link" x1="160" y1="46" x2="118" y2="115"/>
+          <line class="d-link" x1="195" y1="35" x2="150" y2="111"/>
+          <line class="d-link" x1="235" y1="24" x2="200" y2="101"/>
+          <line class="d-link" x1="275" y1="25" x2="255" y2="105"/>
+          <line class="d-link" x1="310" y1="34" x2="300" y2="120"/>
+          <line class="d-link" x1="350" y1="45" x2="345" y2="112"/>
+          <line class="d-link" x1="400" y1="55" x2="400" y2="102"/>
+          <line class="d-link" x1="450" y1="48" x2="455" y2="104"/>
+          <line class="d-link" x1="490" y1="38" x2="490" y2="109"/>
+          <text class="d-caption" x="30" y="22">modelo</text>
+          <text class="d-caption" x="30" y="140">paciente</text>
+        </svg>
+      </div>
+    </div>
+
+    <p class="case-closing">Al final se combinan ambos resultados: <em>Procrustes</em> mide qué tan distorsionada está la geometría espacial del trazo y <em>DTW</em>, qué tan alterada está su fluidez temporal. Juntos entregan al terapeuta una medida objetiva y comparable entre sesiones.</p>
+
+    <div class="tags">
+      <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PWA</span><span class="tag">Procrustes · DTW · Fréchet</span><span class="tag">IA clínica</span>
+    </div>
+  </article>
 
   <div class="item reveal">
     <div class="item-date">2025 — 2026</div>
@@ -434,7 +605,7 @@
 </section>
 
 <section id="premio" class="wrap">
-  <h2 class="reveal"><span>03 — Reconocimiento</span>Premio</h2>
+  <h2 class="reveal"><span>04 — Reconocimiento</span>Premio</h2>
   <div class="award reveal">
     <div>
       <p class="label">Demo Day 2025 · Duoc UC</p>
@@ -448,7 +619,7 @@
 </section>
 
 <section id="habilidades" class="wrap">
-  <h2 class="reveal"><span>04 — Stack</span>Habilidades</h2>
+  <h2 class="reveal"><span>05 — Stack</span>Habilidades</h2>
   <div class="skill-row reveal">
     <div class="skill-label">Lenguajes</div>
     <p>Python, JavaScript, TypeScript, C#, Java, HTML y CSS</p>
@@ -472,7 +643,7 @@
 </section>
 
 <section id="certificaciones" class="wrap">
-  <h2 class="reveal"><span>05 — Formación continua</span>Certificaciones</h2>
+  <h2 class="reveal"><span>06 — Formación continua</span>Certificaciones</h2>
   <div class="cert-list reveal">
     <div class="cert">Arquitectura Cloud — Especialidad<span class="cert-year">Talento Digital para Chile · 2026</span></div>
     <div class="cert">DevOps Essentials Professional Certificate (DEPC)<span class="cert-year">CertiProf · Enero 2026</span></div>
@@ -491,7 +662,7 @@
 </section>
 
 <section id="educacion" class="wrap">
-  <h2 class="reveal"><span>06 — Estudios</span>Educación</h2>
+  <h2 class="reveal"><span>07 — Estudios</span>Educación</h2>
   <div class="item reveal">
     <div class="item-date">Titulado 2026</div>
     <div>
@@ -503,12 +674,13 @@
 
 <footer id="contacto">
   <div class="wrap">
-    <h2 class="reveal"><span>07 — Contacto</span>Trabajemos juntos</h2>
+    <h2 class="reveal"><span>08 — Contacto</span>Trabajemos juntos</h2>
     <p class="reveal" style="color:var(--muted);max-width:52ch">¿Tienes un proyecto en mente o buscas un desarrollador full stack? Escríbeme.</p>
     <div class="contact-links reveal">
       <a class="btn btn-primary" href="mailto:matiasriquelme633@gmail.com">matiasriquelme633@gmail.com</a>
       <a class="btn btn-ghost" href="tel:+56952381975">+56 9 5238 1975</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/matias-riquelme-23580818b" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/matiisnothere-15" target="_blank" rel="noopener noreferrer" title="Perfil de GitHub">GitHub</a>
     </div>
     <p class="foot-note">© 2026 Matías Riquelme Cruzat — Santiago, Chile</p>
   </div>
@@ -537,6 +709,21 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 10);
   }, { passive: true });
+
+  // Video de GrafomotorIA: se muestra solo si el archivo existe;
+  // mientras tanto queda el placeholder con la ruta esperada.
+  const gmVideo = document.getElementById('gm-video');
+  const gmPlaceholder = document.getElementById('gm-video-ph');
+  if (gmVideo && gmPlaceholder) {
+    fetch('video/grafomotoria-demo.mp4', { method: 'HEAD' })
+      .then(r => {
+        if (r.ok) {
+          gmVideo.hidden = false;
+          gmPlaceholder.style.display = 'none';
+        }
+      })
+      .catch(() => {});
+  }
 </script>
 
 </body>

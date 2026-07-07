@@ -1,0 +1,8 @@
+Coloca aquí tu CV en PDF con este nombre EXACTO (respetando mayúsculas y guiones):
+
+  CV-Matias-Riquelme-Cruzat.pdf
+
+El botón "Descargar CV" del portfolio apunta a: cv/CV-Matias-Riquelme-Cruzat.pdf
+Si el archivo no existe, el botón dará error 404 al hacer clic.
+
+Cuando lo agregues, puedes borrar este LEEME.txt.

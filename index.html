@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matías Riquelme Cruzat — Desarrollador Full Stack</title>
-<meta name="description" content="Ingeniero en Informática y desarrollador full stack en Santiago, Chile. Angular, React, TypeScript, .NET 8 y Azure. Creador de GrafomotorIA, Premio al Proyecto Más Innovador — Demo Day 2025.">
+<meta name="description" content="Ingeniero en Informática y desarrollador full stack en Santiago, Chile. Proyectos con React, .NET, Azure, visión por computador, n8n e IA.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Matías Riquelme Cruzat — Desarrollador Full Stack">
-<meta property="og:description" content="Construyo soluciones web escalables con Angular, React, TypeScript, .NET 8 y Azure. Conoce GrafomotorIA y mis proyectos.">
+<meta property="og:description" content="Construyo soluciones web escalables e inteligentes. Conoce GrafomotorIA, Cámara Ninfas y mi automatización laboral con IA.">
 <meta property="og:url" content="https://matiisnothere-15.github.io/portfolio-matias/">
 <meta property="og:image" content="https://matiisnothere-15.github.io/portfolio-matias/img/FotoPerfil.JPG">
 <meta name="twitter:card" content="summary">
@@ -355,11 +355,157 @@
     border:2px dashed var(--french);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
   }
+  .video-placeholder[hidden]{display:none}
   .video-placeholder svg{width:54px;height:54px;fill:none;stroke:var(--french);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.75}
   .video-placeholder span{
     font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;
     text-transform:uppercase;color:var(--french);text-align:center;padding:0 20px;line-height:1.8;
   }
+  .video-placeholder .video-play{
+    padding:0;font-size:34px;line-height:1;letter-spacing:0;
+  }
+
+  /* ---------- Cámara Ninfas ---------- */
+  .project-summary{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;margin:28px 0 8px;
+  }
+  .project-summary-card{
+    padding:20px;border:1px solid var(--line);border-radius:14px;
+    background:rgba(255,244,235,.62);
+  }
+  .project-summary-card strong{
+    display:block;color:var(--midnight);font-size:15px;margin-bottom:5px;
+  }
+  .project-summary-card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.55}
+  .project-gallery{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;margin:30px 0 10px;
+  }
+  .project-shot{margin:0;min-width:0}
+  .project-shot-media{
+    position:relative;overflow:hidden;border-radius:16px;
+    border:1px solid var(--line);background:#F5EAF1;
+    box-shadow:0 14px 34px rgba(61,21,52,.10);
+  }
+  .project-shot-image{
+    width:100%;aspect-ratio:16/10;object-fit:cover;display:block;
+  }
+  .project-shot-placeholder{
+    width:100%;aspect-ratio:16/10;padding:24px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;background:repeating-linear-gradient(45deg,#EFE4F0,#EFE4F0 10px,#F8ECF4 10px,#F8ECF4 20px);
+    border:2px dashed var(--french);color:var(--french);
+  }
+  .project-shot-placeholder[hidden],.project-shot-image[hidden]{display:none}
+  .project-shot-number{
+    width:42px;height:42px;border-radius:50%;margin-bottom:12px;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--powder);background:rgba(255,255,255,.6);
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+  }
+  .project-shot-placeholder strong{font-size:15px;color:var(--midnight)}
+  .project-shot-placeholder small{
+    margin-top:7px;font-family:'JetBrains Mono',monospace;
+    font-size:10px;line-height:1.55;color:var(--muted);word-break:break-word;
+  }
+  .project-shot figcaption{margin-top:10px;color:var(--muted);font-size:13.5px;line-height:1.45}
+  .project-note{
+    margin-top:26px;padding:16px 20px;border-left:3px solid var(--powder);
+    background:rgba(166,188,201,.10);border-radius:0 12px 12px 0;
+    color:var(--muted);font-size:14px;
+  }
+  .project-link{
+    display:inline-flex;align-items:center;margin-top:24px;color:var(--french);
+    font-weight:600;text-decoration:none;border-bottom:1px solid transparent;
+    transition:border-color .25s;
+  }
+  .project-link:hover{border-bottom-color:var(--french)}
+
+  /* ---------- Automatización laboral ---------- */
+  .project-flow{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:10px;margin:28px 0 10px;
+  }
+  .project-flow-step{
+    position:relative;min-height:132px;padding:18px 16px;
+    border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(166,188,201,.10));
+  }
+  .project-flow-step span{
+    display:block;margin-bottom:10px;font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;letter-spacing:.1em;color:var(--french);text-transform:uppercase;
+  }
+  .project-flow-step strong{display:block;color:var(--midnight);font-size:15px;margin-bottom:5px}
+  .project-flow-step p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.45}
+  .automation-gallery{align-items:start}
+  .automation-gallery .project-shot-media video,
+  .automation-gallery .project-shot-media .demo-gif,
+  .automation-gallery .project-shot-media .automation-result-image{
+    width:100%;aspect-ratio:16/10;display:block;object-fit:contain;
+    border-radius:0;background:#08080B;box-shadow:none;
+  }
+  .automation-gallery .project-shot-media video[hidden]{display:none}
+  .automation-gallery .project-shot-media .demo-gif[hidden]{display:none}
+  .automation-gallery .project-shot-media .video-placeholder{
+    aspect-ratio:16/10;border-radius:0;border:2px dashed var(--french);
+  }
+
+  /* ---------- Visor flotante de fotos y GIF ---------- */
+  body.lightbox-open{overflow:hidden}
+  .lightbox-trigger{
+    cursor:zoom-in;
+    transition:filter .25s ease,opacity .25s ease;
+  }
+  .lightbox-trigger:hover{filter:brightness(.94)}
+  .lightbox-trigger:focus-visible{
+    outline:3px solid var(--french);outline-offset:5px;
+  }
+  .media-lightbox[hidden]{display:none}
+  .media-lightbox{
+    position:fixed;inset:0;z-index:100;
+    display:grid;place-items:center;padding:clamp(18px,4vw,48px);
+    background:rgba(22,9,27,.78);backdrop-filter:blur(14px);
+    opacity:0;visibility:hidden;
+    transition:opacity .28s ease,visibility .28s ease;
+  }
+  .media-lightbox.is-open{opacity:1;visibility:visible}
+  .media-lightbox-panel{
+    position:relative;max-width:94vw;max-height:92vh;
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+    transform:translateY(22px) scale(.94);
+    opacity:0;
+    transition:transform .34s cubic-bezier(.2,.8,.2,1),opacity .25s ease;
+  }
+  .media-lightbox.is-open .media-lightbox-panel{
+    transform:translateY(0) scale(1);opacity:1;
+  }
+  .media-lightbox-image{
+    display:block;width:auto;height:auto;
+    max-width:90vw;max-height:80vh;object-fit:contain;
+    border-radius:18px;border:1px solid rgba(255,255,255,.18);
+    background:#09070B;
+    box-shadow:0 28px 80px rgba(0,0,0,.46),0 0 0 1px rgba(255,255,255,.05);
+  }
+  .media-lightbox-caption{
+    max-width:min(760px,86vw);color:#FFF4EB;text-align:center;
+    font-size:14px;line-height:1.5;text-wrap:balance;
+  }
+  .media-lightbox-close{
+    position:fixed;top:20px;right:22px;z-index:1;
+    width:46px;height:46px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.28);
+    background:rgba(255,244,235,.12);color:#FFF4EB;
+    font:400 29px/1 'Figtree',sans-serif;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;backdrop-filter:blur(8px);
+    transition:transform .25s ease,background .25s ease,border-color .25s ease;
+  }
+  .media-lightbox-close:hover{
+    transform:rotate(7deg) scale(1.06);
+    background:rgba(255,244,235,.22);border-color:rgba(255,255,255,.52);
+  }
+  .media-lightbox-close:focus-visible{outline:2px solid #FFF4EB;outline-offset:4px}
 
   /* ---------- Motion off ---------- */
   @media (prefers-reduced-motion: reduce){
@@ -368,7 +514,8 @@
     .aurora span{animation:none}
     .photo-slot::before{animation:none}
     .reveal{opacity:1;transform:none;transition:none}
-    .btn,.item,.award-photo-frame{transition:none}
+    .btn,.item,.award-photo-frame,.lightbox-trigger,
+    .media-lightbox,.media-lightbox-panel,.media-lightbox-close{transition:none}
   }
 
   /* ---------- Responsive ---------- */
@@ -388,6 +535,7 @@
     .award{grid-template-columns:1fr;padding:38px 26px;gap:28px}
     .case{padding:32px 22px}
     .step{grid-template-columns:38px 1fr;gap:12px}
+    .project-summary,.project-gallery{grid-template-columns:1fr}
     .award-photo-frame{transform:none}
     .cert-list{columns:1}
     .nav-links{gap:16px}
@@ -439,7 +587,7 @@
   <div class="about reveal">
     <p>Empecé a desarrollar cuando aún era estudiante, primero en el <strong>front-end</strong> y sumándome progresivamente al back-end. Mi primer gran desafío fue <strong>GrafomotorIA</strong>, junto a Fundación Teletón: lideré el front-end con React y TypeScript —la captura de trazos, la trayectoria, la velocidad y todas las métricas clínicas del proyecto— y, al trabajar directamente con el cliente, en la práctica me desenvolví como desarrollador full stack.</p>
     <p>Luego, en <strong>Seguros SURA Chile</strong>, mi rol ya fue oficialmente full stack: front-end, back-end, temas de seguridad y apoyo en la arquitectura del software.</p>
-    <p>Hoy soy <strong>Ingeniero en Informática titulado</strong>. Mi mayor fortaleza está en el front-end, pero me muevo con soltura por todo el stack, y mi objetivo actual es profundizar en arquitectura de software para crecer hacia un rol de <strong>arquitecto</strong>. Fuera del trabajo sigo construyendo proyectos personales; ahora mismo, un sistema de monitoreo de mascotas.</p>
+    <p>Hoy soy <strong>Ingeniero en Informática titulado</strong>. Mi mayor fortaleza está en el front-end, pero me muevo con soltura por todo el stack, y mi objetivo actual es profundizar en arquitectura de software para crecer hacia un rol de <strong>arquitecto</strong>. Fuera del trabajo sigo construyendo proyectos personales; ahora mismo, <strong>Cámara Ninfas</strong>, un sistema inteligente de monitoreo de mascotas.</p>
   </div>
 </section>
 
@@ -508,9 +656,9 @@
     <p><strong style="color:var(--midnight)">La solución.</strong> GrafomotorIA lo digitaliza con una PWA de 8 actividades interactivas en React y TypeScript. El paciente dibuja sobre una pizarra digital y el sistema analiza presión, velocidad, aceleración, precisión y trayectoria del trazo, entregando al terapeuta una evaluación objetiva y habilitando la telerehabilitación. El proyecto obtuvo el <a href="#premio" style="color:var(--french)">Premio al Proyecto Más Innovador</a> en el Demo Day 2025 de Duoc UC.</p>
 
     <div class="video-frame">
-      <img id="gm-gif" class="demo-gif" alt="Demo animada de GrafomotorIA analizando un trazo" hidden>
+      <img id="gm-gif" class="demo-gif" src="video/grafomotoria-demo.gif" alt="Demo animada de GrafomotorIA analizando un trazo">
       <video id="gm-video" controls preload="metadata" hidden></video>
-      <div class="video-placeholder" id="gm-video-ph">
+      <div class="video-placeholder" id="gm-video-ph" hidden>
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5 L16 12 L10 15.5 Z"/></svg>
         <span>Demo — GrafomotorIA en acción<br>video/grafomotoria-demo.gif</span>
       </div>
@@ -587,6 +735,126 @@
 
     <div class="tags">
       <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PWA</span><span class="tag">Procrustes · DTW · Fréchet</span><span class="tag">IA clínica</span>
+    </div>
+  </article>
+
+  <article class="case reveal">
+    <p class="case-label">Proyecto personal · Visión por computador e IA · 2026</p>
+    <h3>Cámara Ninfas</h3>
+    <p><strong style="color:var(--midnight)">El problema.</strong> Una cámara convencional permite mirar la jaula, pero no resume qué hizo cada ave durante el día, cuánto se movió ni cuándo se acercó a comer o beber. Esa información se pierde cuando no hay una persona observando.</p>
+    <p><strong style="color:var(--midnight)">La solución.</strong> Cámara Ninfas transforma una webcam o cámara Tapo en un monitor inteligente en tiempo real. Un modelo de detección entrenado para este entorno reconoce a las ninfas, el comedero y el bebedero; el tracker conserva la identidad de cada ave y el sistema interpreta estados como activa, inactiva, comiendo o bebiendo.</p>
+    <p>Además, analiza movimiento y audio, genera alertas cuando no se observa alimentación o hidratación durante un periodo prolongado y guarda el historial en Azure SQL. Una app web construida con FastAPI reúne la transmisión en vivo, estadísticas por ave, eventos, recomendaciones y un asistente opcional conectado a Microsoft Foundry.</p>
+
+    <div class="project-summary" aria-label="Funciones principales de Cámara Ninfas">
+      <div class="project-summary-card">
+        <strong>Detección y tracking</strong>
+        <p>Localiza aves, comedero y bebedero con visión por computador, mantiene IDs persistentes y distingue individuos por el color de su plumaje.</p>
+      </div>
+      <div class="project-summary-card">
+        <strong>Comportamiento y salud</strong>
+        <p>Registra actividad, inactividad, comida y bebida; combina movimiento y audio para generar estados y alertas de observación.</p>
+      </div>
+      <div class="project-summary-card">
+        <strong>Panel e historial</strong>
+        <p>Muestra video anotado en vivo, estadísticas y una bitácora de eventos almacenada de forma asíncrona en Azure SQL.</p>
+      </div>
+      <div class="project-summary-card">
+        <strong>Asistente opcional</strong>
+        <p>Permite consultar el estado reciente y las recomendaciones del monitor mediante herramientas de solo lectura en Microsoft Foundry.</p>
+      </div>
+    </div>
+
+    <h4>Tracker y aplicación</h4>
+    <p>Estos espacios quedan listos para mostrar capturas reales del sistema. Al agregar los archivos indicados dentro de la carpeta <strong>img</strong>, las fotos reemplazarán automáticamente los marcadores.</p>
+
+    <div class="project-gallery">
+      <figure class="project-shot">
+        <div class="project-shot-media">
+          <img id="ninfas-tracker" class="project-shot-image" src="img/camara-ninfas-tracker.png" alt="Tracker de Cámara Ninfas detectando y siguiendo aves, comedero y bebedero">
+          <div id="ninfas-tracker-ph" class="project-shot-placeholder" hidden>
+            <span class="project-shot-number" aria-hidden="true">01</span>
+            <strong>Foto del tracker</strong>
+            <small>img/camara-ninfas-tracker.jpg</small>
+          </div>
+        </div>
+        <figcaption>Vista del modelo detectando cada ninfa y siguiendo su actividad dentro de la jaula.</figcaption>
+      </figure>
+
+      <figure class="project-shot">
+        <div class="project-shot-media">
+          <img id="ninfas-app" class="project-shot-image" src="img/camara-ninfas-app.png" alt="Panel web de Cámara Ninfas con video en vivo, estadísticas y eventos">
+          <div id="ninfas-app-ph" class="project-shot-placeholder" hidden>
+            <span class="project-shot-number" aria-hidden="true">02</span>
+            <strong>Foto de la app</strong>
+            <small>img/camara-ninfas-app.jpg</small>
+          </div>
+        </div>
+        <figcaption>Panel web con la transmisión en vivo, el estado general y el historial de cada ave.</figcaption>
+      </figure>
+    </div>
+
+    <p class="project-note"><strong>Nota:</strong> los estados, alertas y recomendaciones son ayudas de observación basadas en reglas; no reemplazan una evaluación veterinaria.</p>
+
+    <div class="tags">
+      <span class="tag">Python</span><span class="tag">YOLO</span><span class="tag">BoT-SORT</span><span class="tag">FastAPI</span><span class="tag">Azure SQL</span><span class="tag">Microsoft Foundry</span>
+    </div>
+  </article>
+
+  <article class="case reveal">
+    <p class="case-label">Proyecto personal · Automatización e IA · 2026</p>
+    <h3>Job Match IA — CV Adaptativo</h3>
+    <p><strong style="color:var(--midnight)">El problema.</strong> Como ingeniero en Informática recién titulado, actualmente estoy buscando una oportunidad para comenzar mi carrera profesional. LinkedIn publica nuevas vacantes durante todo el día y no siempre puedo estar revisando la plataforma: una oferta que encaja con mi perfil puede aparecer cuando no estoy conectado y pasar horas o incluso días antes de que la descubra. Para entonces, ya puede tener muchas postulaciones o haber dejado de estar disponible.</p>
+    <p><strong style="color:var(--midnight)">La solución.</strong> Mientras pensaba cómo mantenerme atento sin pasar todo el día actualizando LinkedIn, se me ocurrió automatizar ese recorrido. Desarrollé en n8n un pipeline que cada dos horas busca nuevas ofertas alineadas con mi perfil y me avisa cuando detecta un buen nivel de compatibilidad. Así puedo reaccionar antes y concentrarme en revisar y postular, mientras el flujo se encarga de recopilar las vacantes, eliminar duplicados y prácticas, y utilizar Gemini para contrastar los requisitos con mi catálogo curricular verificado.</p>
+    <p>La IA interpreta la oferta, pero no decide el resultado: un motor JavaScript calcula un score reproducible de 0 a 100 con ponderaciones y reglas de descarte. Cuando una vacante supera el umbral, el flujo genera un CV adaptado en LaTeX, lo compila a PDF, registra la oportunidad en Google Sheets y envía por Telegram el análisis, los requisitos faltantes, el enlace y el documento listo para postular.</p>
+
+    <div class="project-flow" aria-label="Etapas del flujo de automatización laboral">
+      <div class="project-flow-step">
+        <span>01 · Descubre</span>
+        <strong>Ofertas recientes</strong>
+        <p>Cada dos horas ejecuta 26 búsquedas orientadas al perfil y obtiene vacantes publicadas durante las últimas 24 horas.</p>
+      </div>
+      <div class="project-flow-step">
+        <span>02 · Filtra</span>
+        <strong>Datos limpios</strong>
+        <p>Quita duplicados de la ejecución y del historial, descarta prácticas y limita cada ciclo a nuevas oportunidades.</p>
+      </div>
+      <div class="project-flow-step">
+        <span>03 · Analiza</span>
+        <strong>Gemini + catálogo</strong>
+        <p>Extrae requisitos, seniority y funciones, contrastándolos solamente con experiencia curricular comprobada.</p>
+      </div>
+      <div class="project-flow-step">
+        <span>04 · Entrega</span>
+        <strong>Score, CV y alerta</strong>
+        <p>Calcula compatibilidad, genera el PDF adaptado y centraliza el resultado en Sheets y Telegram.</p>
+      </div>
+    </div>
+
+    <h4>Flujo en ejecución y resultado</h4>
+    <p>El video mostrará el recorrido completo en n8n. A su lado, la captura de Telegram enseña cómo llega el porcentaje de compatibilidad, el desglose del score, los requisitos faltantes y el CV personalizado en PDF.</p>
+    <div class="project-gallery automation-gallery">
+      <figure class="project-shot">
+        <div class="project-shot-media">
+          <video id="jobs-video" controls preload="metadata" hidden></video>
+          <img id="jobs-gif" class="demo-gif" src="video/automatizacion-laboral-demo.gif" alt="Demostración del flujo Job Match IA ejecutándose en n8n">
+          <div class="video-placeholder" id="jobs-video-ph" hidden>
+            <span class="video-play" aria-hidden="true">▶</span>
+            <span>Demo — flujo n8n en ejecución<br>video/automatizacion-laboral-demo.gif</span>
+          </div>
+        </div>
+        <figcaption>Video del workflow: búsqueda, análisis, scoring, generación del CV y envío automático.</figcaption>
+      </figure>
+
+      <figure class="project-shot">
+        <div class="project-shot-media">
+          <img class="automation-result-image" src="img/automatizacion-laboral-telegram.png" loading="lazy" alt="Resultado del bot de Telegram con una oferta laboral, score de compatibilidad y CV adaptado en PDF">
+        </div>
+        <figcaption>Resultado en Telegram para una oferta con match 94/100 y su CV adaptado.</figcaption>
+      </figure>
+    </div>
+
+    <div class="tags">
+      <span class="tag">n8n</span><span class="tag">JavaScript</span><span class="tag">LinkedIn Jobs</span><span class="tag">Gemini API</span><span class="tag">Google Sheets</span><span class="tag">LaTeX</span><span class="tag">Telegram Bot</span>
     </div>
   </article>
 
@@ -689,13 +957,20 @@
     <p class="reveal" style="color:var(--muted);max-width:52ch">¿Tienes un proyecto en mente o buscas un desarrollador full stack? Escríbeme.</p>
     <div class="contact-links reveal">
       <a class="btn btn-primary" href="mailto:matiasriquelme633@gmail.com">matiasriquelme633@gmail.com</a>
-      <a class="btn btn-ghost" href="tel:+56952381975">+56 9 5238 1975</a>
+      <a class="btn btn-ghost" href="tel:+56979219439">(+56) 9 7921 9439</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/matias-riquelme-23580818b" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn">LinkedIn</a>
-      <a class="btn btn-ghost" href="https://github.com/matiisnothere-15" target="_blank" rel="noopener noreferrer" title="Perfil de GitHub">GitHub</a>
     </div>
     <p class="foot-note">© 2026 Matías Riquelme Cruzat — Santiago, Chile</p>
   </div>
 </footer>
+
+<div class="media-lightbox" id="media-lightbox" role="dialog" aria-modal="true" aria-labelledby="media-lightbox-caption" hidden>
+  <button class="media-lightbox-close" id="media-lightbox-close" type="button" aria-label="Cerrar imagen ampliada">×</button>
+  <div class="media-lightbox-panel">
+    <img class="media-lightbox-image" id="media-lightbox-image" alt="">
+    <p class="media-lightbox-caption" id="media-lightbox-caption"></p>
+  </div>
+</div>
 
 <script>
   // Aparición suave de secciones al hacer scroll
@@ -739,6 +1014,141 @@
       gmPlaceholder.style.display = 'none';
     }
   })();
+
+  // Capturas de Cámara Ninfas: acepta JPG, JPEG, PNG o WEBP y reemplaza
+  // cada marcador automáticamente cuando el archivo se agrega a /img.
+  const cargarPrimeraImagen = async (imagenId, marcadorId, rutas) => {
+    const imagen = document.getElementById(imagenId);
+    const marcador = document.getElementById(marcadorId);
+    if (!imagen || !marcador) return;
+
+    for (const ruta of rutas) {
+      if (await existe(ruta)) {
+        imagen.src = ruta;
+        imagen.hidden = false;
+        marcador.hidden = true;
+        return;
+      }
+    }
+  };
+
+  cargarPrimeraImagen('ninfas-tracker', 'ninfas-tracker-ph', [
+    'img/camara-ninfas-tracker.jpg',
+    'img/camara-ninfas-tracker.jpeg',
+    'img/camara-ninfas-tracker.png',
+    'img/camara-ninfas-tracker.webp'
+  ]);
+  cargarPrimeraImagen('ninfas-app', 'ninfas-app-ph', [
+    'img/camara-ninfas-app.jpg',
+    'img/camara-ninfas-app.jpeg',
+    'img/camara-ninfas-app.png',
+    'img/camara-ninfas-app.webp'
+  ]);
+
+  // Demo de Job Match IA: prioriza el GIF y conserva MP4/WEBM como respaldo.
+  const jobsVideo = document.getElementById('jobs-video');
+  const jobsGif = document.getElementById('jobs-gif');
+  const jobsPlaceholder = document.getElementById('jobs-video-ph');
+  (async () => {
+    if (!jobsVideo || !jobsGif || !jobsPlaceholder) return;
+
+    if (await existe('video/automatizacion-laboral-demo.gif')) {
+      jobsGif.src = 'video/automatizacion-laboral-demo.gif';
+      jobsGif.hidden = false;
+      jobsVideo.hidden = true;
+      jobsPlaceholder.style.display = 'none';
+      return;
+    }
+
+    for (const ruta of [
+      'video/automatizacion-laboral-demo.mp4',
+      'video/automatizacion-laboral-demo.webm'
+    ]) {
+      if (await existe(ruta)) {
+        jobsVideo.src = ruta;
+        jobsVideo.hidden = false;
+        jobsPlaceholder.style.display = 'none';
+        return;
+      }
+    }
+  })();
+
+  // Visor flotante para todas las fotografías y demostraciones animadas.
+  const lightbox = document.getElementById('media-lightbox');
+  const lightboxImage = document.getElementById('media-lightbox-image');
+  const lightboxCaption = document.getElementById('media-lightbox-caption');
+  const lightboxClose = document.getElementById('media-lightbox-close');
+  let elementoAnterior = null;
+  let temporizadorCierre = null;
+
+  const abrirMedia = imagen => {
+    if (!lightbox || !lightboxImage || !lightboxCaption || !lightboxClose) return;
+
+    const pie = imagen.closest('figure')?.querySelector('figcaption')?.textContent.trim();
+    const descripcion = pie || imagen.alt || 'Imagen ampliada';
+    clearTimeout(temporizadorCierre);
+    elementoAnterior = document.activeElement;
+    lightboxImage.src = imagen.currentSrc || imagen.src;
+    lightboxImage.alt = imagen.alt || descripcion;
+    lightboxCaption.textContent = descripcion;
+    lightbox.hidden = false;
+    document.body.classList.add('lightbox-open');
+
+    requestAnimationFrame(() => {
+      lightbox.classList.add('is-open');
+      lightboxClose.focus({ preventScroll: true });
+    });
+  };
+
+  const finalizarCierre = () => {
+    if (!lightbox || !lightboxImage) return;
+    lightbox.hidden = true;
+    lightboxImage.removeAttribute('src');
+    if (elementoAnterior instanceof HTMLElement) {
+      elementoAnterior.focus({ preventScroll: true });
+    }
+  };
+
+  const cerrarMedia = () => {
+    if (!lightbox || lightbox.hidden) return;
+    lightbox.classList.remove('is-open');
+    document.body.classList.remove('lightbox-open');
+    clearTimeout(temporizadorCierre);
+
+    if (prefersReduced) {
+      finalizarCierre();
+    } else {
+      temporizadorCierre = window.setTimeout(finalizarCierre, 280);
+    }
+  };
+
+  document.querySelectorAll('body img[src]:not(.media-lightbox-image)').forEach(imagen => {
+    imagen.classList.add('lightbox-trigger');
+    imagen.tabIndex = 0;
+    imagen.setAttribute('role', 'button');
+    imagen.setAttribute('aria-haspopup', 'dialog');
+    imagen.setAttribute('aria-label', `Ampliar: ${imagen.alt || 'imagen'}`);
+    imagen.addEventListener('click', () => abrirMedia(imagen));
+    imagen.addEventListener('keydown', evento => {
+      if (evento.key === 'Enter' || evento.key === ' ') {
+        evento.preventDefault();
+        abrirMedia(imagen);
+      }
+    });
+  });
+
+  lightboxClose?.addEventListener('click', cerrarMedia);
+  lightbox?.addEventListener('click', evento => {
+    if (evento.target === lightbox) cerrarMedia();
+  });
+  document.addEventListener('keydown', evento => {
+    if (!lightbox || lightbox.hidden) return;
+    if (evento.key === 'Escape') cerrarMedia();
+    if (evento.key === 'Tab') {
+      evento.preventDefault();
+      lightboxClose?.focus({ preventScroll: true });
+    }
+  });
 </script>
 
 </body>
